@@ -1,6 +1,6 @@
 set -e
 
-OUT_FILE="./assets/inventory.aws_ec2.yml"
+OUT_FILE="./inventory.aws_ec2.yml"
 
 # extract the region value (supports quotes)
 REGION=$REGION_NAME
