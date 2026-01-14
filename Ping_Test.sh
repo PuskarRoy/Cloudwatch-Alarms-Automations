@@ -1,5 +1,6 @@
 #!/bin/bash
 
+set -e
 
 bash ./assets/Generate_Inventory.sh
 
