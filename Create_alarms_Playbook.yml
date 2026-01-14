@@ -10,15 +10,13 @@
     - ./assets/instances_details.yml
 
   vars:
-    - region: "{{ lookup('env', 'REGION_NAME') }}"
-    - sns_topic_arn: "{{ lookup('env', 'SNS_TOPIC') }}"
-
-  vars:
+    region: "{{ lookup('env', 'REGION_NAME') }}"
+    sns_topic_arn: "{{ lookup('env', 'SNS_TOPIC') }}"
     thresholds:
       - 85
       - 95
-    sns_actions: 
-      - "{{ sns_topic_arn }}"
+      
+    sns_actions: ["{{ sns_topic_arn }}"]
      
     disk_path: "/"
 
