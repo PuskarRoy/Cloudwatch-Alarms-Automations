@@ -2,7 +2,7 @@
 
 set -e
 
-ansible -m ping all
+sudo bash ./assets/Generate_Inventory.sh
 
 ansible-inventory --graph
 
