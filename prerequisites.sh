@@ -60,3 +60,6 @@ compose:
 EOF
 
 echo "Generated $OUT_FILE"
+echo "******************************************************"
+echo "                   USE TAG : Alarms-Automation: Yes"
+echo "******************************************************"
