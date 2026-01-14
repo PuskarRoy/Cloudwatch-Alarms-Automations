@@ -1,7 +1,0 @@
-instances:
-  - name: ubuntu
-    instance: i-0c1e90d109a85cfc7
-    device: nvme0n1p1
-    fstype: ext4
-    imageid: ami-02b8269d5e85954ef
-
