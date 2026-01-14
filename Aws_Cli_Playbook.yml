@@ -1,0 +1,36 @@
+- name: Update and upgrade packages on all Linux servers
+  hosts: all
+  become: true
+  gather_facts: true
+
+  tasks:
+    - name: Update and upgrade on Ubuntu/Debian
+      ansible.builtin.apt:
+        update_cache: yes
+        upgrade: dist
+      when: ansible_facts['os_family'] == "Debian"
+
+    - name: Install wget and unzip on Ubuntu/Debian
+      ansible.builtin.apt:
+        name:
+          - wget
+          - unzip
+        state: present
+      when: ansible_facts['os_family'] == "Debian"
+
+    - name: Update and upgrade on Amazon Linux or RedHat family
+      ansible.builtin.yum:
+        name: "*"
+        state: latest
+      when: ansible_facts['os_family'] in ["RedHat", "Amazon"]
+
+    - name: Install wget and unzip on Amazon Linux or RedHat family
+      ansible.builtin.yum:
+        name:
+          - wget
+          - unzip
+        state: present
+      when: ansible_facts['os_family'] in ["RedHat", "Amazon"]
+    
+    - name: Run a script to install Aws-Cli
+      ansible.builtin.script: ./assets/Aws_Cli_Install.sh
