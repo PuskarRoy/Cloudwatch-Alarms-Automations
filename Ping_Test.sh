@@ -1,3 +1,7 @@
 #!/bin/bash
-# This is a comment. The next line prints a message.
+
+set -e
+
 ansible -m ping all
+
+ansible-inventory --graph
