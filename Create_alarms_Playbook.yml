@@ -7,8 +7,11 @@
     - amazon.aws
 
   vars_files:
-    - alarm_config.yml
     - ./assets/instances_details.yml
+
+  vars:
+    - region: "{{ lookup('env', 'REGION_NAME') }}"
+    - sns_topic_arn: "{{ lookup('env', 'SNS_TOPIC') }}"
 
   vars:
     thresholds:
