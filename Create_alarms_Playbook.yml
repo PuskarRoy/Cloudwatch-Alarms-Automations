@@ -29,7 +29,7 @@
           - region is defined
           - instances is defined
           - instances | length > 0
-        fail_msg: "Please provide correct details in alarm_config.yml"
+        fail_msg: "Please provide correct details "
 
     - name: Build alarm list (instances × thresholds) with device/fstype/imageid
       set_fact:
