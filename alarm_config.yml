@@ -1,5 +1,0 @@
-sns_topic_arn: arn:aws:sns:us-west-2:045242220150:test
-region: ap-south-1
-bucket_name: ansible-automation-test123
-tag:
-  Alarm_Automation : yes
