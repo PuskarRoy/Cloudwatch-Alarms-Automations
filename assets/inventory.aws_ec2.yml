@@ -1,7 +1,7 @@
 ---
 plugin: amazon.aws.aws_ec2
 
-regions: ${REGION}
+regions: ap-south-1
 
 filters:
   "tag:Alarms-Automation": "Yes"
@@ -11,5 +11,5 @@ hostnames: instance-id
 
 compose:
   ansible_connection: '"aws_ssm"'
-  ansible_aws_ssm_bucket_name: '"${BUCKET_NAME}"'
-  ansible_aws_ssm_region: '"${REGION}"'
+  ansible_aws_ssm_bucket_name: '"ansible-automation-test123"'
+  ansible_aws_ssm_region: '"ap-south-1"'
