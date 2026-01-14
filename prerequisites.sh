@@ -16,28 +16,22 @@ sudo rm -fr amazon-ssm-agent.deb session-manager-plugin.deb
 
 sudo snap install aws-cli --classic
 
-set -euo pipefail
+set -e
 
-VARS_FILE="./alarm_config.yml"
 OUT_FILE="./assets/inventory.aws_ec2.yml"
 
-if [ ! -f "$VARS_FILE" ]; then
-  echo "vars file not found: $VARS_FILE" >&2
-  exit 2
-fi
-
 # extract the region value (supports quotes)
-REGION=$(grep -E '^[[:space:]]*region[[:space:]]*:' "$VARS_FILE" | head -n1 | sed -E 's/^[^:]*:[[:space:]]*["'\'']?([^"'\'' ]+)["'\'']?.*$/\1/')
+REGION=$REGION_NAME
 
 if [ -z "$REGION" ]; then
-  echo "Could not parse region from $VARS_FILE. Ensure it contains a line like: region: ap-south-1" >&2
+  echo "Could not parse region from Environment." >&2
   exit 3
 fi
 
-BUCKET_NAME=$(grep -E '^[[:space:]]*bucket_name[[:space:]]*:' "$VARS_FILE" | head -n1 | sed -E 's/^[^:]*:[[:space:]]*["'\'']?([^"'\'' ]+)["'\'']?.*$/\1/')
+BUCKET_NAME=$BUCKET_NAME
 
 if [ -z "$BUCKET_NAME" ]; then
-  echo "Could not parse bucket_name from $VARS_FILE. Ensure it contains a line like: bucket_name: ansible-automation-test123" >&2
+  echo "Could not parse bucket_name from Environment. " >&2
   exit 4
 fi
 
