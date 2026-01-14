@@ -1,4 +1,6 @@
-set -e
+#!/bin/bash
+
+set -euo pipefail
 
 OUT_FILE="./inventory.aws_ec2.yml"
 
