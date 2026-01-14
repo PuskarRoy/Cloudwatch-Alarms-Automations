@@ -17,7 +17,9 @@
     thresholds:
       - 85
       - 95
-    sns_actions: ["{{ sns_topic_arn }}"]
+    sns_actions: 
+      - "{{ sns_topic_arn }}"
+     
     disk_path: "/"
 
   tasks:
