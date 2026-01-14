@@ -7,4 +7,4 @@ ansible -m ping all
 ansible-inventory --graph
 
 
-cat ./assets/instances_details.yml
+cat instances_details.yml
