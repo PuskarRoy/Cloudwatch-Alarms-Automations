@@ -55,5 +55,5 @@ EOF
 
 echo "Generated $OUT_FILE"
 echo "******************************************************"
-echo "                   USE TAG : Alarms-Automation: Yes"
+echo "   $REGION_NAME $BUCKET_NAME                USE TAG : Alarms-Automation: Yes"
 echo "******************************************************"
