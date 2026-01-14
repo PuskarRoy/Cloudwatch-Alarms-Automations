@@ -1,8 +1,8 @@
 ---
 - name: Create CPU, Disk, Status checks and Memory CloudWatch alarms
-  hosts: localhost
-  connection: local
-  gather_facts: false
+  hosts: all
+  become: true
+  gather_facts: true
   collections:
     - amazon.aws
 
@@ -90,6 +90,8 @@
       loop: "{{ instances | product(thresholds) | map('flatten') | list }}"
       loop_control:
         label: "{{ item[0].name }}:{{ item[1] }}"
+      delegate_to: localhost
+      run_once: true
 
     ####################################################################
     # CPU alarms (AWS/EC2)
@@ -113,7 +115,8 @@
       loop: "{{ alarms }}"
       loop_control:
         loop_var: alarm
-
+      delegate_to: localhost
+      run_once: true
     ####################################################################
     # Disk alarms (CWAgent) - exact fixed dims: InstanceId, path, device, fstype, ImageId
     ####################################################################
@@ -146,7 +149,8 @@
       loop: "{{ alarms }}"
       loop_control:
         loop_var: alarm
-
+      delegate_to: localhost
+      run_once: true
     ####################################################################
     # Status checks (Instance & System & AttachedEBS using InstanceId)
     ####################################################################
@@ -170,7 +174,9 @@
       loop_control:
         label: "{{ item.name }}"
         loop_var: item
-
+      delegate_to: localhost
+      run_once: true
+      
     - name: Create StatusCheckFailed_System alarms
       amazon.aws.cloudwatch_metric_alarm:
         state: present
@@ -191,7 +197,9 @@
       loop_control:
         label: "{{ item.name }}"
         loop_var: item
-
+      delegate_to: localhost
+      run_once: true
+      
     - name: Create StatusCheckFailed_AttachedEBS alarms
       amazon.aws.cloudwatch_metric_alarm:
         state: present
@@ -212,7 +220,8 @@
       loop_control:
         label: "{{ item.name }}"
         loop_var: item
-
+      delegate_to: localhost
+      run_once: true
     ####################################################################
     # Memory alarms (CWAgent) - InstanceId + ImageId
     ####################################################################
@@ -231,7 +240,9 @@
       loop: "{{ instances | product(thresholds) | map('flatten') | list }}"
       loop_control:
         label: "{{ item[0].name }} → {{ item[1] }}"
-
+      delegate_to: localhost
+      run_once: true
+      
     - name: Create Memory alarms (85% & 95%) using CWAgent (InstanceId + ImageId)
       vars:
         final_dims: >-
@@ -258,3 +269,5 @@
       loop: "{{ mem_alarms | default([]) }}"
       loop_control:
         loop_var: alarm
+      delegate_to: localhost
+      run_once: true
