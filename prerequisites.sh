@@ -14,6 +14,8 @@ sudo dpkg -i session-manager-plugin.deb
 
 sudo rm -fr amazon-ssm-agent.deb session-manager-plugin.deb
 
+sudo apt install upzip wget
+
 sudo bash ./assets/Aws_Cli_Install.sh
 
 echo "******************************************************"
