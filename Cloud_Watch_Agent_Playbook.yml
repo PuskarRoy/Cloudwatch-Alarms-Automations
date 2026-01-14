@@ -4,11 +4,6 @@
   gather_facts: true
 
   tasks:
-    - name: Run a shell script only on the local Ansible controller
-      ansible.builtin.shell: ./assets/Generate_Inventory.sh
-      delegate_to: localhost
-      run_once: true
-  
     - name: Update and upgrade on Ubuntu/Debian
       ansible.builtin.apt:
         update_cache: yes
