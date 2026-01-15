@@ -33,4 +33,4 @@
       when: ansible_facts['os_family'] in ["RedHat", "Amazon"]
     
     - name: Run a script to install Aws-Cli
-      ansible.builtin.script: assets/Aws_Cli_Install.sh
+      ansible.builtin.script: ../assets/Aws_Cli_Install.sh
