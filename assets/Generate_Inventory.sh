@@ -32,6 +32,6 @@ hostnames: instance-id
 
 compose:
   ansible_connection: '"aws_ssm"'
-  ansible_aws_ssm_bucket_name: '"$BUCKET_NAME/hh"'
+  ansible_aws_ssm_bucket_name: '"$BUCKET_NAME"'
   ansible_aws_ssm_region: '"$REGION"'
 EOF
