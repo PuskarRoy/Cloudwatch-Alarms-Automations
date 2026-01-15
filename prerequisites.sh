@@ -21,5 +21,5 @@ sudo apt install -y unzip wget
 sudo bash ./assets/Aws_Cli_Install.sh
 
 echo "******************************************************"
-echo "                USE TAG : Alarms-Automation: Yes"
+echo "        USE TAG : Alarms-Automation: Yes"
 echo "******************************************************"
