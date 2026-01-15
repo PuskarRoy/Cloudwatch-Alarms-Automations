@@ -26,7 +26,7 @@ plugin: amazon.aws.aws_ec2
 regions: $REGION
 
 filters:
-  "tag:Alarms-Automation": "Yes"
+  "tag:Ansible-Automation": "Yes"
   instance-state-name: running
 
 hostnames: instance-id
