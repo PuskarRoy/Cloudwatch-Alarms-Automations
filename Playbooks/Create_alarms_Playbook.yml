@@ -57,7 +57,7 @@
       
     - name: Clean-Up from local server
       ansible.builtin.shell: |
-        cd ./assets/instance_data
+        cd ../assets/instance_data
         bash ../Collect_Instance_Details.sh
         cd ..
         mv ./instance_data/instances_details.yml .
