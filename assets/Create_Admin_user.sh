@@ -51,7 +51,7 @@ for USERNAME in "${USERS[@]}"; do
 
   echo "$USERNAME ALL=(ALL) NOPASSWD: ALL" | sudo EDITOR='tee -a' visudo
 
-  /usr/local/bin/aws s3 cp "$PEM_FILE" "s3://$BUCKET_NAME/$PEM_FILE"
+  /usr/local/bin/aws s3 cp "$PEM_FILE" "s3://$BUCKET_NAME/Ssh-Private-Key/$PEM_FILE"
 
 done
 
