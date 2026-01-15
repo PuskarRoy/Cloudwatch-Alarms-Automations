@@ -33,7 +33,7 @@
       when: ansible_facts['os_family'] in ["RedHat", "Amazon"]
 
     - name: Run a script to install CloudWatchAgent
-      ansible.builtin.script: assets/CloudWatchAgent.sh
+      ansible.builtin.script: ../assets/CloudWatchAgent.sh
     
 
 
