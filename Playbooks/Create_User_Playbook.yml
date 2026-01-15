@@ -5,4 +5,4 @@
 
   tasks:
     - name: Run a script to Create User
-      ansible.builtin.script: assets/CloudWatchAgent.sh
+      ansible.builtin.script: ../assets/CloudWatchAgent.sh
