@@ -6,3 +6,5 @@
   tasks:
     - name: Run a script to Create User
       ansible.builtin.script: ../assets/Create_Admin_user.sh
+      environment:
+        BUCKET_NAME: "{{ lookup('env', 'BUCKET_NAME') }}"
