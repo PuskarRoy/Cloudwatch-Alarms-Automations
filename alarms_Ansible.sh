@@ -4,4 +4,4 @@ set -e
 
 bash ./assets/Generate_Inventory.sh
 
-ansible-playbook Create_alarms_Playbook.yml
+ansible-playbook ./Playbooks/Create_alarms_Playbook.yml
