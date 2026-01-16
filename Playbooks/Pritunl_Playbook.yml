@@ -5,9 +5,9 @@
 
   tasks:
     - name: Install Pritunl On Ubuntu
-      ansible.builtin.script: ../assets/Amazon_Pritunl.sh
+      ansible.builtin.script: ../assets/Ubuntu_Pritunl.sh
       when: ansible_facts['os_family'] == "Debian"
 
-    - name: Update and upgrade on Amazon Linux or RedHat family
-      ansible.builtin.script: ../assets/Ubuntu_Pritunl.sh
+    - name: Install Pritunl On Amazon
+      ansible.builtin.script: ../assets/Amazon_Pritunl.sh
       when: ansible_facts['os_family'] in ["RedHat", "Amazon"]
